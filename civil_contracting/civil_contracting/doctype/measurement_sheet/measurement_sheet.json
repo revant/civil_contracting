@@ -149,7 +149,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-04-11 12:44:36.109098", 
+ "modified": "2015-04-11 13:09:57.119583", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Measurement Sheet", 
@@ -177,7 +177,7 @@
  ], 
  "read_only": 0, 
  "read_only_onload": 0, 
- "search_fields": "", 
+ "search_fields": "measurement_item, project", 
  "sort_field": "modified", 
  "sort_order": "DESC"
 }
