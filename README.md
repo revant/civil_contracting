@@ -15,8 +15,4 @@ $ bench frappe --install_app civil_contracting [sitename]
 
 # To Do
   1. Only permit Draft BOM to be selected in Measurement Sheet
-  2. On submit of Measurement Sheet 
-     1. Comment Current BOM Quantity in BOM's Comment
-     2. Update the BOM quantity with Measurement Sheet's total_qty
-  3. Auto generate a Measurement Book based on Project Selected, i.e. only Measurement Sheets with selected project will be added to Measurement Book
-
+  2. Auto generate a Measurement Book based on Project Selected, i.e. only Measurement Sheets with selected project will be added to Measurement Book
