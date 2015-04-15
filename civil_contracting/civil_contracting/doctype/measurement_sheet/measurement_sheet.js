@@ -1,7 +1,15 @@
 // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
-/* TODO: Set BOM selection filter to show only Draft BOM, BOM with docstatus 0 */
+
+/* Set BOM selection filter to show only Draft BOM, BOM with docstatus 0 */
+cur_frm.set_query("bom_no", function(doc) {
+	return {
+		"filters": {
+			"docstatus": 0
+		}
+	};
+});
 
 calculate_total_qty = function(doc) {
 	var measurements = doc.measurement_table || [];
