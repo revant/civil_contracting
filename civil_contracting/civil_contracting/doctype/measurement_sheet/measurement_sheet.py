@@ -9,6 +9,5 @@ from frappe.utils import nowdate
 from frappe.model.document import Document
 
 class MeasurementSheet(Document):
-	on_submit:
-		pass
+	pass
 
