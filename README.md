@@ -24,9 +24,9 @@ $ bench frappe --install_app civil_contracting [sitename]
     5. Outstanding Wages = Total Wages - Daily Wages
 
 # To Do
-  1. Validate Draft BOM Status before submit.
+  1. Validate Draft BOM Status before submit. Comment Qty of submitted Measurement Sheet in Linked BOM.
   2. Auto generate a Measurement Book based on Project Selected, i.e. only Measurement Sheets with selected project will be added to Measurement Book
-  3. Working Hours Settings need to be copied and in Worker Sheet, Working Hours to should be added to each row in Worker Sheet Attendance Table
+  3. Working Hours Settings need to be copied in Worker Sheet, copied Working Hours to be added to each row in Worker Sheet Attendance Table
   4. Enable Add multiple Rows option for Worker Sheet Attendance Table
   5. Worker Sheet Accounts Settings - Select Ledger for Payment (cash / bank), Wages, Outstanding Wages, other wage expenses, and travel expense.
   6. Pass Journal Entry for Wages, Wage related Expense paid from cash / bank and record outstanding wages.
