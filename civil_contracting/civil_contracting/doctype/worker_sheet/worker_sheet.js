@@ -26,7 +26,7 @@ calculate_totals = function(doc) {
 		doc.total_wages += total_wages;
 	}
 	refresh_field('total_wages');
-	doc.outstanding_wages = flt(flt(doc.total_wages) - flt(flt(doc.cash_advance) + flt(doc.daily_wages)));
+	doc.outstanding_wages = flt(flt(doc.total_wages) - flt(doc.daily_wages));
 }
 
 cur_frm.cscript.validate = function(doc, dt, dn) {
