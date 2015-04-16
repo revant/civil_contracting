@@ -1,5 +1,4 @@
-// Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
+// See license.txt
 
 
 /* Set BOM selection filter to show only Draft BOM, BOM with docstatus 0 */

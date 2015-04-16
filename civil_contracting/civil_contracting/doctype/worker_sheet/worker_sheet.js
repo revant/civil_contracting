@@ -1,5 +1,5 @@
-// Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
+// Copyright (c) 2013, Revant Nandgaonkar and contributors
+// For license information, please see license.txt
 
 cur_frm.add_fetch("workstation", "hour_rate", "rate");
 
