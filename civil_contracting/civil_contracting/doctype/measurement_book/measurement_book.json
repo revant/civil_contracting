@@ -69,9 +69,9 @@
   }, 
   {
    "fieldname": "customer", 
-   "fieldtype": "Read Only", 
+   "fieldtype": "Data", 
    "label": "Customer", 
-   "options": "project.customer", 
+   "options": "", 
    "permlevel": 0, 
    "precision": ""
   }, 
@@ -120,7 +120,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-04-16 13:44:53.830191", 
+ "modified": "2015-04-16 17:36:37.231701", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Measurement Book", 
