@@ -3,14 +3,18 @@ Frappe App for use in Civil Contracting Business
 
 # Install
 
+First install frappe-bench, erpnext and setup a site [http://frappe.io]
+
 ```
 $ bench get-app civil_contracting https://bitbucket.org/revant_nandgaonkar/civil_contracting
 $ bench frappe --install_app civil_contracting [sitename]
 ```
 
 # Business:
-  1. Measurements: Measurements are taken by multiple parties for multiple purposes. Measurements are taken before quoting, along with bill/sales invoice, Third Party measurements, Customer Measures etc.
-  2. Workers: There are two type of construction workers, Daily Wage labour (called *rokda* in Hindi) they charge cash daily and Monthly Wage Labour (called *hajeri* in Hindi) they are paid monthly.
+  1. Measurements: Measurements are taken by multiple parties for multiple purposes. Measurements are taken before quoting, along with bill/sales invoice, Third Party measurements, Customer Measures, before paying sub-contractor etc.
+  2. Workers: There are two type of construction workers, 
+    1. Daily Wage labour (called *rokda* in Hindi) they charge cash daily and 
+    2. Monthly Wage Labour (called *hajeri* in Hindi) they are paid monthly.
 
 # Doctypes
 
@@ -18,7 +22,6 @@ $ bench frappe --install_app civil_contracting [sitename]
   2. **Measurement Book**: Set of Measurement Sheets to be submitted together.
   3. **Worker Sheet**: Sheet for Addendence in hours of Workstations on Project. Calculates Total Wages and Outstanding Wages as per Daily Wages Paid.
     1. Total Wages = hourly rate multiplied by hours of work
-    2. Travel Expense = Currency, as incurred
     3. Other Worker Expense = Currency, as incurred.
     4. Daily Wages = Currency, Payments to Daily wage worker
     5. Outstanding Wages = Total Wages - Daily Wages
