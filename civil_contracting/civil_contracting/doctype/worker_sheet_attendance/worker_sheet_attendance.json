@@ -66,6 +66,14 @@
    "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0
+  }, 
+  {
+   "default": "1", 
+   "fieldname": "is_daily_paid", 
+   "fieldtype": "Check", 
+   "label": "Is Daily Paid", 
+   "permlevel": 0, 
+   "precision": ""
   }
  ], 
  "hide_heading": 0, 
@@ -75,7 +83,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2015-04-15 13:22:36.364931", 
+ "modified": "2015-04-16 10:59:45.800432", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Worker Sheet Attendance", 

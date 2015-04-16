@@ -21,12 +21,19 @@ calculate_totals = function(doc) {
 	var attendance = doc.worker_attendance || [];
 	doc.total_wages = 0.0;
 	doc.outstanding_wages = 0.0;
+	doc.daily_wages = 0.0;
 	for(var i=0;i<attendance.length;i++) {
+		if (attendance[i].is_daily_paid === 1){
+			daily_wages = flt(flt(attendance[i].rate) * flt(attendance[i].hours), 2);
+			doc.daily_wages += daily_wages;
+		}
 		total_wages = flt(flt(attendance[i].rate) * flt(attendance[i].hours), 2);
 		doc.total_wages += total_wages;
 	}
-	refresh_field('total_wages');
 	doc.outstanding_wages = flt(flt(doc.total_wages) - flt(doc.daily_wages));
+	refresh_field('total_wages');
+	refresh_field('daily_wages');
+	refresh_field('outstanding_wages');
 }
 
 cur_frm.cscript.validate = function(doc, dt, dn) {

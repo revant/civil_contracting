@@ -3,11 +3,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe import msgprint
 from frappe.model.document import Document
-from frappe.database import *
 
-class WorkerSheet(Document):
-	def validate(self):
-		# What to validate?
-		pass
+class WorkerSheetSettings(Document):
+	pass
