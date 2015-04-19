@@ -48,6 +48,15 @@
    "set_only_once": 0
   }, 
   {
+   "default": "Cash", 
+   "fieldname": "mode_of_payment", 
+   "fieldtype": "Link", 
+   "label": "Mode of Payment", 
+   "options": "Mode of Payment", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "allow_on_submit": 0, 
    "fieldname": "cb_ws_details", 
    "fieldtype": "Column Break", 
@@ -275,7 +284,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-04-16 13:44:06.044872", 
+ "modified": "2015-04-19 10:48:16.199641", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Worker Sheet", 
