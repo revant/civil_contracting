@@ -7,3 +7,13 @@ cur_frm.add_fetch("sheet_no", "measurement_item", "item_name");
 cur_frm.add_fetch("sheet_no", "total_qty", "total_qty");
 cur_frm.add_fetch("sheet_no", "uom", "uom");
 cur_frm.add_fetch("project", "customer", "customer");
+
+frappe.ui.form.on("Measurement Book", {
+	onload: function(frm) { 
+		frm.set_query("sheet_no", "records", function() { 
+			return {
+				filters: {docstatus:1}
+			}
+		});
+	}
+});
