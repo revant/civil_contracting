@@ -173,6 +173,14 @@
    "set_only_once": 0
   }, 
   {
+   "fieldname": "fiscal_year", 
+   "fieldtype": "Link", 
+   "label": "Fiscal Year", 
+   "options": "Fiscal Year", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "allow_on_submit": 0, 
    "fieldname": "cb_wa", 
    "fieldtype": "Column Break", 
@@ -227,6 +235,14 @@
    "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0
+  }, 
+  {
+   "fieldname": "company", 
+   "fieldtype": "Link", 
+   "label": "Company", 
+   "options": "Company", 
+   "permlevel": 0, 
+   "precision": ""
   }, 
   {
    "allow_on_submit": 0, 
@@ -284,7 +300,7 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-04-19 10:48:16.199641", 
+ "modified": "2015-04-25 15:04:55.950504", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Worker Sheet", 
