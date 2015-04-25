@@ -23,6 +23,9 @@ calculate_totals = function(doc) {
 	doc.daily_wages = 0.0;
 	for(var i=0;i<attendance.length;i++) {
 		if (attendance[i].is_daily_paid === 1){
+			if (!attendance[i].hours){
+				attendance[i].hours = doc.working_hours;
+			}
 			daily_wages = flt(flt(attendance[i].rate) * flt(attendance[i].hours), 2);
 			doc.daily_wages += daily_wages;
 		}
@@ -35,6 +38,21 @@ calculate_totals = function(doc) {
 	refresh_field('outstanding_wages');
 }
 
+// if "hours" are not entered in Attendance Row, "working_hours" will be copied
+add_working_hours = function(doc) {
+	var attendance = doc.worker_attendance || [];
+	for(var i=0;i<attendance.length;i++) {
+		if (!attendance[i].hours){
+			attendance[i].hours = doc.working_hours;
+		}
+	}
+	refresh_field('hours');
+}
+
 cur_frm.cscript.validate = function(doc, dt, dn) {
 	calculate_totals(doc);
+}
+
+cur_frm.cscript.refresh = function(doc, dt, dn) {
+	add_working_hours(doc);
 }
