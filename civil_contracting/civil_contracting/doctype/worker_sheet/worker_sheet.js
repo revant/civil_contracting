@@ -1,22 +1,21 @@
 // Copyright (c) 2013, Revant Nandgaonkar and contributors
 // For license information, please see license.txt
 
+frappe.ui.form.on("Worker Sheet", "onload", function(frm) {
+	//Setting "working_hours" value from Singles - Worker Sheet Settings
+    frappe.call({
+        method: "frappe.client.get",
+        args: {
+        	doctype: "Worker Sheet Settings"
+        },
+        callback: function (data) {
+        	frappe.model.set_value(frm.doctype, frm.docname, "working_hours", data.message.working_hours)
+        }
+    })
+});
+
 cur_frm.add_fetch("workstation", "hour_rate", "rate");
 
-/*
-frappe.ui.form.on("Worker Sheet", "onload", function(frm) {
-	frappe.call({
-		"method": "frappe.database.get_values_from_single",
-		args: {
-			doctype: "Working Hour Setting",
-			fieldname: "working_hours"
-		},
-		callback: function (data) {
-			frappe.model.set_value(frm.doctype, frm.docname, "working_hours", data.message.working_hours)
-		}
-	})
-})
-*/
 calculate_totals = function(doc) {
 	var attendance = doc.worker_attendance || [];
 	doc.total_wages = 0.0;
