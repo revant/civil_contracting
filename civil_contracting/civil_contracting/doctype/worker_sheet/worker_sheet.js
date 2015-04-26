@@ -1,5 +1,10 @@
 // Copyright (c) 2013, Revant Nandgaonkar and contributors
 // For license information, please see license.txt
+var voucher_type = "Bank Voucher";
+var wages_account = "";
+var os_wages_account = "";
+var other_wexp_account = "";
+var working_hours = 0.0;
 
 frappe.ui.form.on("Worker Sheet", "onload", function(frm) {
 	//Setting "working_hours" value from Singles - Worker Sheet Settings
@@ -9,7 +14,23 @@ frappe.ui.form.on("Worker Sheet", "onload", function(frm) {
         	doctype: "Worker Sheet Settings"
         },
         callback: function (data) {
-        	frappe.model.set_value(frm.doctype, frm.docname, "working_hours", data.message.working_hours)
+        	wages_account = data.message.wages_account;;
+			os_wages_account = data.message.os_wages_account;
+			other_wexp_account = data.message.other_wexp_account;
+			working_hours = data.message.working_hours;
+        	frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
+        	if(!wages_account){
+        		msgprint (__("Set Wages account in Worker Sheet Settings"));
+        	}
+        	if(!os_wages_account){
+        		msgprint (__("Set Outstanding Wages account in Worker Sheet Settings"));
+        	}
+        	if(!other_wexp_account){
+        		msgprint (__("Set Other Worker Expenses account in Worker Sheet Settings"));
+        	}
+        	if(!working_hours){
+        		msgprint (__("Set Working Hours in Worker Sheet Settings"));
+        	}
         }
     })
 });
@@ -50,55 +71,57 @@ add_working_hours = function(doc) {
 }
 
 make_journal_entry = function() {
-	if (frappe.model.can_create("Journal Entry")) {
-		/* var me = this;
-		var voucher_type = "Journal Entry";
-		
-		if(cur_frm.doc.mode_of_payment == "Cash") {
-			voucher_type = "Cash Entry";
-		}
-		if(cur_frm.doc.mode_of_payment == "Bank") {
-			voucher_type = "Bank Entry";
-		}
-		else {
-			voucher_type = "Journal Entry";
-		}
 
-		return frappe.call({
-			method: "erpnext.accounts.doctype.journal_entry.journal_entry.get_default_bank_cash_account",
-			args: {
-				//"company": cur_frm.doc.company,
-				"voucher_type": voucher_type
-			},
-			callback: function(r) {
-				var jv = frappe.model.make_new_doc_and_get_name('Journal Entry');
-				jv = locals['Journal Entry'][jv];
-				jv.voucher_type = voucher_type;
-				jv.company = cur_frm.doc.company;
-				jv.remark = 'Payment against Worker Sheet: ' + cur_frm.doc.name;
-				jv.fiscal_year = cur_frm.doc.fiscal_year;
+	var me = this;
 
-				var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-				d1.debit = cur_frm.doc.total_sanctioned_amount;
-				d1.against_expense_claim = cur_frm.doc.name;
+	/*if(cur_frm.doc.mode_of_payment === "Cash") {
+		voucher_type = "Cash Voucher";
+	}
+	else if(cur_frm.doc.mode_of_payment === "Bank") {
+		voucher_type = "Bank Voucher";
+	}*/
+	
+	return frappe.call({
+		method: "erpnext.accounts.doctype.journal_voucher.journal_voucher.get_default_bank_cash_account",
+		args: {
+			"company": cur_frm.doc.company,
+			"voucher_type": voucher_type
+		},
+		callback: function(r) {
+			var jv = frappe.model.make_new_doc_and_get_name('Journal Voucher');
+			jv = locals['Journal Voucher'][jv];
+			jv.voucher_type = voucher_type;
+			jv.company = cur_frm.doc.company;
+			jv.remark = 'Payment against Worker Sheet: ' + cur_frm.doc.name;
+			jv.fiscal_year = cur_frm.doc.fiscal_year;
 
-				// credit to bank
-				var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-				d1.credit = cur_frm.doc.total_sanctioned_amount;
-				d1.against_expense_claim = cur_frm.doc.name;
-				if(r.message) {
-					d1.account = r.message.account;
-					d1.balance = r.message.balance;
-				}
-				loaddoc('Journal Entry', jv.name);
+			var d1 = frappe.model.add_child(jv, 'Journal Voucher Detail', 'entries');
+			d1.debit = cur_frm.doc.total_wages;
+			d1.account = wages_account;
+
+			if(cur_frm.doc.other_worker_expense){
+				var d2 = frappe.model.add_child(jv, 'Journal Voucher Detail', 'entries');
+				d2.debit = cur_frm.doc.other_worker_expense;
+				d2.account = other_wexp_account;
 			}
-		});
-	*/
-	}
-	else {
-		msgprint(__("No permission to create Journal Voucher Entry"));
-	}
 
+			// credit to cash_bank_account
+			var d3 = frappe.model.add_child(jv, 'Journal Voucher Detail', 'entries');
+			d3.credit = flt(flt(cur_frm.doc.daily_wages) + flt(cur_frm.doc.other_worker_expense));
+			if(r.message) {
+				d3.account = r.message.account;
+				d3.balance = r.message.balance;
+			}
+
+			// credit outstanding wages
+			if(cur_frm.doc.outstanding_wages){
+				var d4 = frappe.model.add_child(jv, 'Journal Voucher Detail', 'entries');
+				d4.credit = cur_frm.doc.outstanding_wages;
+				d4.account = os_wages_account;
+			}
+			loaddoc('Journal Voucher', jv.name);
+		}
+	});
 }
 
 cur_frm.cscript.validate = function(doc, dt, dn) {
@@ -107,8 +130,8 @@ cur_frm.cscript.validate = function(doc, dt, dn) {
 
 cur_frm.cscript.refresh = function(doc, dt, dn) {
 	if(!doc.__islocal) {
-		if(doc.docstatus==1){
-    		cur_frm.add_custom_button(__("Make Journal Entry"), make_journal_entry, frappe.boot.doctype_icons["Journal Entry"]);
+		if(doc.docstatus==1 && frappe.model.can_create("Journal Voucher")){
+    		cur_frm.add_custom_button(__("Make Journal Voucher"), make_journal_entry, frappe.boot.doctype_icons["Journal Voucher"]);
     	}
     }
     add_working_hours(doc);
