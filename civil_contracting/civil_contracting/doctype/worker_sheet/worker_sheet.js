@@ -93,12 +93,16 @@ make_journal_entry = function() {
 			jv.company = cur_frm.doc.company;
 			jv.remark = 'Payment against Worker Sheet: ' + cur_frm.doc.name;
 			jv.fiscal_year = cur_frm.doc.fiscal_year;
+
 			var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 			d1.debit = cur_frm.doc.total_wages;
 			d1.account = wages_account;
-			var d2 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-			d2.debit = cur_frm.doc.other_worker_expense;
-			d2.account = other_wexp_account;
+
+			if(cur_frm.doc.other_worker_expense){
+				var d2 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
+				d2.debit = cur_frm.doc.other_worker_expense;
+				d2.account = other_wexp_account;
+			}
 
 			// credit to cash_bank_account
 			var d3 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
@@ -109,9 +113,11 @@ make_journal_entry = function() {
 			}
 
 			// credit outstanding wages
-			var d4 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-			d4.credit = cur_frm.doc.outstanding_wages;
-			d4.account = os_wages_account;
+			if(cur_frm.doc.outstanding_wages){
+				var d4 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
+				d4.credit = cur_frm.doc.outstanding_wages;
+				d4.account = os_wages_account;
+			}
 			loaddoc('Journal Entry', jv.name);
 		}
 	});
