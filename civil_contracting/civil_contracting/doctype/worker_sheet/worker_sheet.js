@@ -6,33 +6,37 @@ var os_wages_account = "";
 var other_wexp_account = "";
 var working_hours = 0.0;
 
-frappe.ui.form.on("Worker Sheet", "onload", function(frm) {
-	//Setting "working_hours" value from Singles - Worker Sheet Settings
-    frappe.call({
-        method: "frappe.client.get",
-        args: {
-        	doctype: "Worker Sheet Settings"
-        },
-        callback: function (data) {
-        	wages_account = data.message.wages_account;;
-			os_wages_account = data.message.os_wages_account;
-			other_wexp_account = data.message.other_wexp_account;
-			working_hours = data.message.working_hours;
-        	frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
-        	if(!wages_account){
-        		msgprint (__("Set Wages account in Worker Sheet Settings"));
+frappe.ui.form.on("Worker Sheet", {
+	onload: function(frm) {
+		frappe.call({
+        	method: "frappe.client.get",
+        	args: {
+        		doctype: "Worker Sheet Settings"
+        	},
+        	callback: function (data) {
+	        	wages_account = data.message.wages_account;;
+				os_wages_account = data.message.os_wages_account;
+				other_wexp_account = data.message.other_wexp_account;
+				working_hours = data.message.working_hours;
+        		frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
+        		if(!wages_account){
+	        		msgprint (__("Set Wages account in Worker Sheet Settings"));
+        		}
+        		if(!os_wages_account){
+	        		msgprint (__("Set Outstanding Wages account in Worker Sheet Settings"));
+        		}
+        		if(!other_wexp_account){
+	        		msgprint (__("Set Other Worker Expenses account in Worker Sheet Settings"));
+        		}
+        		if(!working_hours){
+	        		msgprint (__("Set Working Hours in Worker Sheet Settings"));
+        		}
         	}
-        	if(!os_wages_account){
-        		msgprint (__("Set Outstanding Wages account in Worker Sheet Settings"));
-        	}
-        	if(!other_wexp_account){
-        		msgprint (__("Set Other Worker Expenses account in Worker Sheet Settings"));
-        	}
-        	if(!working_hours){
-        		msgprint (__("Set Working Hours in Worker Sheet Settings"));
-        	}
-        }
-    })
+    	})
+	},
+	onload_post_render: function() {
+		cur_frm.get_field("worker_attendance").grid.set_multiple_add("workstation", "rate");
+	},
 });
 
 cur_frm.add_fetch("workstation", "hour_rate", "rate");
