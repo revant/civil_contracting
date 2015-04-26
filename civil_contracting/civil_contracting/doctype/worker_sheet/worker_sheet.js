@@ -75,12 +75,11 @@ make_journal_entry = function() {
 	var me = this;
 
 	/*if(cur_frm.doc.mode_of_payment === "Cash") {
-		voucher_type = "Cash Voucher";
+		voucher_type = "Cash Entry";
 	}
 	else if(cur_frm.doc.mode_of_payment === "Bank") {
-		voucher_type = "Bank Voucher";
+		voucher_type = "Bank Entry";
 	}*/
-	
 	return frappe.call({
 		method: "erpnext.accounts.doctype.journal_voucher.journal_voucher.get_default_bank_cash_account",
 		args: {
@@ -109,7 +108,7 @@ make_journal_entry = function() {
 			var d3 = frappe.model.add_child(jv, 'Journal Voucher Detail', 'entries');
 			d3.credit = flt(flt(cur_frm.doc.daily_wages) + flt(cur_frm.doc.other_worker_expense));
 			if(r.message) {
-				d3.account = r.message.account;
+				d3.account = r.message.cash_bank_account;
 				d3.balance = r.message.balance;
 			}
 
