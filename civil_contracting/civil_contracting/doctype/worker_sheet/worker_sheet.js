@@ -124,7 +124,7 @@ make_journal_entry = function() {
 }
 
 cur_frm.cscript.validate = function(doc, dt, dn) {
-	calculate_totals(doc);
+	//calculate_totals(doc);
 }
 
 cur_frm.cscript.refresh = function(doc, dt, dn) {
@@ -133,5 +133,6 @@ cur_frm.cscript.refresh = function(doc, dt, dn) {
     		cur_frm.add_custom_button(__("Make Journal Voucher"), make_journal_entry, frappe.boot.doctype_icons["Journal Voucher"]);
     	}
     }
+    calculate_totals(doc);
     add_working_hours(doc);
 }
