@@ -81,7 +81,7 @@ make_journal_entry = function() {
 	if(cur_frm.doc.mode_of_payment === "Cash") {
 		voucher_type = "Cash Entry";
 	}
-	else if(cur_frm.doc.mode_of_payment === "Bank") {
+	else if(cur_frm.doc.mode_of_payment === "Cheque") {
 		voucher_type = "Bank Entry";
 	}
 	return frappe.call({
