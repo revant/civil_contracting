@@ -3,7 +3,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.desk.reportview import get_match_cond
+# from frappe.desk.reportview import get_match_cond
 from frappe.model.db_query import DatabaseQuery
 from frappe.utils import nowdate
 from frappe.model.document import Document
