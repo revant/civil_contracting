@@ -112,7 +112,7 @@ make_journal_entry = function() {
 			var d3 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 			d3.credit = flt(flt(cur_frm.doc.daily_wages) + flt(cur_frm.doc.other_worker_expense));
 			if(r.message) {
-				d3.account = r.message.cash_bank_account;
+				d3.account = r.message.account;
 				d3.balance = r.message.balance;
 			}
 
