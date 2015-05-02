@@ -9,6 +9,7 @@
  "document_type": "", 
  "fields": [
   {
+   "depends_on": "eval:doc.is_daily_paid=='0'", 
    "fieldname": "worker_name", 
    "fieldtype": "Link", 
    "label": "Worker Name", 
@@ -91,7 +92,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2015-05-02 15:38:10.359285", 
+ "modified": "2015-05-02 22:47:36.069198", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Worker Sheet Attendance", 
