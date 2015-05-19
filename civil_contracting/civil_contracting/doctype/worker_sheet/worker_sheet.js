@@ -101,11 +101,17 @@ make_journal_entry = function() {
 			var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 			d1.debit = cur_frm.doc.total_wages;
 			d1.account = wages_account;
+			if(cur_frm.doc.cost_center){
+				d1.cost_center = cur_frm.doc.cost_center;
+			}
 
 			if(cur_frm.doc.other_worker_expense){
 				var d2 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 				d2.debit = cur_frm.doc.other_worker_expense;
 				d2.account = other_wexp_account;
+				if(cur_frm.doc.cost_center){
+					d2.cost_center = cur_frm.doc.cost_center;
+				}
 			}
 
 			// credit to cash_bank_account
