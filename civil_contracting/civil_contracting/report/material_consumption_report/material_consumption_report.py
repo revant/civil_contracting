@@ -11,18 +11,27 @@ def execute(filters=None):
 	
 	data = []
 	for mat_ent in material_entries:
-		data.append([mat_ent.date, mat_ent.project, mat_ent.output_item, mat_ent.op_uom, mat_ent.op_qty])
+		mat_item = get_mat_item(mat_ent.name)
+		for i in mat_item:
+			data.append([mat_ent.date, i.item_consumed, i.qty_consumed, i.item_uom])
+		#data.append([mat_ent.date, mat_ent.name, mat_ent.project, mat_ent.output_item])
 	return columns, data
 
 def get_columns():
-	return [_("Date") + ":Datetime:95", _("Project") + ":Link/Project:130", _("Output Item") + ":Link/Item:100"
+	return [_("Date") + ":Date:95", _("Name") + ":Data:95", _("Qty Consumed") + ":Data:95", _("UOM") + ":Data:95"
 	]
 
 def get_material_entries(filters):
-	return frappe.db.sql("""select date, project, output_item, op_uom, op_qty
+	return frappe.db.sql("""select date, name, project, output_item
 		from `tabMaterial Sheet`
-		where project = %(project)s and
-		date between %(from_date)s and %(to_date)s
+		where output_item = %(output_item)s and
+		project = %(project)s
 			order by date desc"""\
 		.format(), filters, as_dict=1)
-	
+
+def get_mat_item(dname):
+	return frappe.db.sql("""select item_consumed, qty_consumed, item_uom
+		from `tabMaterial Sheet Item`
+		where parent = %(name)s
+			order by item_consumed desc"""\
+		, {"name": dname}, as_dict=1)
