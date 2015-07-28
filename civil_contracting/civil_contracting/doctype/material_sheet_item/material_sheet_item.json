@@ -30,6 +30,14 @@
    "unique": 0
   }, 
   {
+   "fieldname": "item_description", 
+   "fieldtype": "Read Only", 
+   "label": "Item Description", 
+   "options": "item_consumed.item_name", 
+   "permlevel": 0, 
+   "precision": ""
+  }, 
+  {
    "allow_on_submit": 0, 
    "fieldname": "qty_consumed", 
    "fieldtype": "Float", 
@@ -79,7 +87,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2015-07-21 12:54:51.147549", 
+ "modified": "2015-07-28 17:24:16.168664", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Material Sheet Item", 
