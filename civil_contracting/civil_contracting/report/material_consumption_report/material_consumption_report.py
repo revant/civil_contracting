@@ -25,7 +25,8 @@ def get_material_entries(filters):
 	return frappe.db.sql("""select date, name, project, output_item
 		from `tabMaterial Sheet`
 		where output_item = %(output_item)s and
-		project = %(project)s
+		project = %(project)s and
+		date between %(from_date)s and %(to_date)s
 			order by date desc"""\
 		.format(), filters, as_dict=1)
 
