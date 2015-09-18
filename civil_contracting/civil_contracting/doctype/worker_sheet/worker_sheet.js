@@ -99,7 +99,7 @@ make_journal_entry = function() {
 			jv.fiscal_year = cur_frm.doc.fiscal_year;
 
 			var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-			d1.debit = cur_frm.doc.total_wages;
+			d1.debit_in_account_currency = cur_frm.doc.total_wages;
 			d1.account = wages_account;
 			if(cur_frm.doc.cost_center){
 				d1.cost_center = cur_frm.doc.cost_center;
@@ -107,7 +107,7 @@ make_journal_entry = function() {
 
 			if(cur_frm.doc.other_worker_expense){
 				var d2 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-				d2.debit = cur_frm.doc.other_worker_expense;
+				d2.debit_in_account_currency = cur_frm.doc.other_worker_expense;
 				d2.account = other_wexp_account;
 				if(cur_frm.doc.cost_center){
 					d2.cost_center = cur_frm.doc.cost_center;
@@ -116,7 +116,7 @@ make_journal_entry = function() {
 
 			// credit to cash_bank_account
 			var d3 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-			d3.credit = flt(flt(cur_frm.doc.daily_wages) + flt(cur_frm.doc.other_worker_expense));
+			d3.credit_in_account_currency = flt(flt(cur_frm.doc.daily_wages) + flt(cur_frm.doc.other_worker_expense));
 			if(r.message) {
 				d3.account = r.message.account;
 				d3.balance = r.message.balance;
@@ -125,7 +125,7 @@ make_journal_entry = function() {
 			// credit outstanding wages
 			if(cur_frm.doc.outstanding_wages){
 				var d4 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
-				d4.credit = cur_frm.doc.outstanding_wages;
+				d4.credit_in_account_currency = cur_frm.doc.outstanding_wages;
 				d4.account = os_wages_account;
 			}
 			loaddoc('Journal Entry', jv.name);
