@@ -45,7 +45,7 @@ app_version = "0.0.1"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "civil_contracting.notifications.get_notification_config"
+notification_config = "civil_contracting.notifications.get_notification_config"
 
 # Permissions
 # -----------
