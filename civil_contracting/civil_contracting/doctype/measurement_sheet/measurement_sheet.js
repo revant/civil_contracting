@@ -14,4 +14,8 @@ cur_frm.cscript.validate = function(doc, dt, dn) {
 	calculate_total_qty(doc);
 }
 
+<<<<<<< HEAD
 cur_frm.add_fetch("item", "stock_uom", "uom");
+=======
+cur_frm.add_fetch("item", "stock_uom", "uom");
+>>>>>>> v5

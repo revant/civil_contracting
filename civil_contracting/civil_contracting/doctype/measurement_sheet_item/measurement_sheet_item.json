@@ -10,6 +10,8 @@
  "fields": [
   {
    "allow_on_submit": 0, 
+   "bold": 0, 
+   "collapsible": 0, 
    "fieldname": "location", 
    "fieldtype": "Data", 
    "hidden": 0, 
@@ -25,10 +27,13 @@
    "report_hide": 0, 
    "reqd": 0, 
    "search_index": 0, 
-   "set_only_once": 0
+   "set_only_once": 0, 
+   "unique": 0
   }, 
   {
    "allow_on_submit": 0, 
+   "bold": 0, 
+   "collapsible": 0, 
    "fieldname": "number", 
    "fieldtype": "Float", 
    "hidden": 0, 
@@ -44,10 +49,13 @@
    "report_hide": 0, 
    "reqd": 0, 
    "search_index": 0, 
-   "set_only_once": 0
+   "set_only_once": 0, 
+   "unique": 0
   }, 
   {
    "allow_on_submit": 0, 
+   "bold": 0, 
+   "collapsible": 0, 
    "fieldname": "dimension", 
    "fieldtype": "Data", 
    "hidden": 0, 
@@ -63,10 +71,13 @@
    "report_hide": 0, 
    "reqd": 0, 
    "search_index": 0, 
-   "set_only_once": 0
+   "set_only_once": 0, 
+   "unique": 0
   }, 
   {
    "allow_on_submit": 0, 
+   "bold": 0, 
+   "collapsible": 0, 
    "fieldname": "qty", 
    "fieldtype": "Float", 
    "hidden": 0, 
@@ -82,7 +93,8 @@
    "report_hide": 0, 
    "reqd": 0, 
    "search_index": 0, 
-   "set_only_once": 0
+   "set_only_once": 0, 
+   "unique": 0
   }
  ], 
  "hide_heading": 0, 
@@ -92,7 +104,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2015-04-11 22:51:54.460299", 
+ "modified": "2015-09-08 11:15:27.128354", 
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Measurement Sheet Item", 

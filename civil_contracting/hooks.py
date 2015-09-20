@@ -5,7 +5,7 @@ app_description = "App for Civil Contracting Enterprises"
 app_icon = "octicon octicon-zap"
 app_color = "grey"
 app_email = "revant.one@gmail.com"
-app_version = "0.0.1"
+app_version = "1.0.0"
 
 # Includes in <head>
 # ------------------
@@ -45,7 +45,7 @@ app_version = "0.0.1"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "civil_contracting.notifications.get_notification_config"
+notification_config = "civil_contracting.notifications.get_notification_config"
 
 # Permissions
 # -----------
