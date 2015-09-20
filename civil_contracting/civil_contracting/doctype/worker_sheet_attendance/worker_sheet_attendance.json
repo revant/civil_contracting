@@ -9,15 +9,6 @@
  "document_type": "", 
  "fields": [
   {
-   "depends_on": "eval:doc.is_daily_paid=='0'", 
-   "fieldname": "worker_name", 
-   "fieldtype": "Link", 
-   "label": "Worker Name", 
-   "options": "Employee", 
-   "permlevel": 0, 
-   "precision": ""
-  }, 
-  {
    "allow_on_submit": 0, 
    "bold": 0, 
    "collapsible": 0, 
@@ -140,11 +131,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 1, 
-<<<<<<< HEAD
- "modified": "2015-05-02 22:47:36.069198", 
-=======
  "modified": "2015-09-08 11:15:05.359774", 
->>>>>>> v5
  "modified_by": "Administrator", 
  "module": "Civil Contracting", 
  "name": "Worker Sheet Attendance", 
