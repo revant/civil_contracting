@@ -11,6 +11,14 @@ from frappe.model.document import Document
 
 class MeasurementSheet(Document):
 	def validate(self):
+		total_qty = 0
+		if self.total_qty == 0:
+			frappe.throw(_("Total Quantity cannot be 0"))
+		else:
+			for i in self.measurement_table:
+				total_qty += i.number * i.qty
+			if self.total_qty != total_qty:
+				frappe.throw(_("Total Quantity mismatch Error"))
 		delivery_note = frappe.get_list("Delivery Note",
 			fields=["name", "docstatus"],
 			filters = {
