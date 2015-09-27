@@ -21,8 +21,9 @@ class MeasurementBook(Document):
 
 @frappe.whitelist()
 def get_measure_sheets(dn):
-	return frappe.db.sql("""select delivery_note, name, item, uom, total_qty
+	return frappe.db.sql("""select delivery_note, name, item, uom, total_qty, docstatus
 		from `tabMeasurement Sheet`
-		where delivery_note = %s """\
+		where delivery_note = %s and
+		docstatus = 1 """\
 		, dn, as_dict=1)
 
