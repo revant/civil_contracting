@@ -16,8 +16,14 @@ from frappe.model.mapper import get_mapped_doc
 
 
 class MeasurementBook(Document):
-	
-	pass
+	def validate(self):
+		delivery_note = frappe.get_list("Delivery Note",
+			fields=["name", "docstatus"],
+			filters = {
+				"name": self.delivery_note
+			})
+		if delivery_note[0].docstatus != 1:
+			frappe.throw(_("Only Submitted Delivery Note Allowed"))
 
 @frappe.whitelist()
 def get_measure_sheets(dn):

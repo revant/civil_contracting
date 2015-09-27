@@ -2,16 +2,15 @@
 
 cur_frm.add_fetch("delivery_note", "customer", "customer");
 
-/*frappe.ui.form.on("Measurement Book", {
+frappe.ui.form.on("Measurement Book", {
 	onload: function(frm) { 
-		frm.set_query("sheet_no", "records", function() { 
+		frm.set_query("delivery_note", function() { 
 			return {
 				filters: {docstatus:1}
 			}
 		});
 	}
 });
-*/
 
 frappe.ui.form.on("Measurement Book", "get_items", function(frm) {
 	// erpnext.payment_tool.check_mandatory_to_fetch(frm.doc);
