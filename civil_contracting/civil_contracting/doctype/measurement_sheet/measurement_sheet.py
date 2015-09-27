@@ -18,4 +18,16 @@ class MeasurementSheet(Document):
 			})
 		if delivery_note[0].docstatus != 0:
 			frappe.throw(_("Only Draft Delivery Note Allowed"))
-
+		delivery_note_items = frappe.get_list("Delivery Note Item",
+			fields=["parent", "item_code"],
+			filters = {
+				"parent": self.delivery_note
+			})
+		cl = []
+		for itm in delivery_note_items:
+			if self.item == itm.item_code:
+				cl.append(1)
+			else:
+				cl.append(0)
+		if sum(cl) == 0:
+			frappe.throw(_("Only Items from Delivery Note Allowed"))
