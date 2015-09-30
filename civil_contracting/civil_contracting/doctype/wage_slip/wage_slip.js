@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 var os_wages_account = "";
 
-frappe.ui.form.on("Worker Sheet", {
+frappe.ui.form.on("Wage Slip", {
 	onload: function(frm) {
 		frappe.call({
         	method: "frappe.client.get",
@@ -96,16 +96,15 @@ make_journal_entry = function() {
 
 			var d1 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 			d1.debit_in_account_currency = flt(cur_frm.doc.total_payment);
-			//msgprint(os_wages_account);
 			d1.account = os_wages_account;
 
 			// credit to cash_bank_account
 			var d2 = frappe.model.add_child(jv, 'Journal Entry Account', 'accounts');
 			d2.credit_in_account_currency = flt(cur_frm.doc.total_payment);
-			/*if(r.message) {
-				d3.account = r.message.account;
-				d3.balance = r.message.balance;
-			}*/
+			if(r.message) {
+				d2.account = r.message.account;
+				d2.balance = r.message.balance;
+			}
 			loaddoc('Journal Entry', jv.name);
 		}
 	});
