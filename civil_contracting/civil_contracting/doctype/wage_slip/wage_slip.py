@@ -13,7 +13,20 @@ import json
 from frappe.model.mapper import get_mapped_doc
 
 class WageSlip(Document):
-	pass
+	def on_submit(self):
+		for payment in self.payment_allocation:
+			if payment.worker:
+				os_wages = payment.t_os_wage - payment.t_payment
+				frappe.set_value("Worker", payment.worker, "outstanding_wages", os_wages)
+
+	def on_cancel(self):
+		for payment in self.payment_allocation:
+			if payment.worker:
+				get_worker = frappe.db.sql("""select name, outstanding_wages 
+		from `tabWorker` where name = %s """, payment.worker, as_dict=1)
+				current_os_wage = get_worker[0].outstanding_wages
+				os_wages = current_os_wage + payment.t_payment
+				frappe.set_value("Worker", payment.worker, "outstanding_wages", os_wages)
 
 @frappe.whitelist()
 def get_os_wg(project):
