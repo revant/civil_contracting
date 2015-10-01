@@ -16,6 +16,9 @@ class WageSlip(Document):
 	def on_submit(self):
 		for payment in self.payment_allocation:
 			if payment.worker:
+				if not payment.t_payment:
+					frappe.throw(_("Payment must be entered"))
+
 				os_wages = payment.t_os_wage - payment.t_payment
 				frappe.set_value("Worker", payment.worker, "outstanding_wages", os_wages)
 
