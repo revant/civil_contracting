@@ -39,6 +39,7 @@ frappe.ui.form.on("Worker Sheet", {
 	},
 });
 
+cur_frm.add_fetch("worker_name", "workstation", "workstation");
 cur_frm.add_fetch("worker_name", "hour_rate", "rate");
 cur_frm.add_fetch("workstation", "hour_rate", "rate");
 
