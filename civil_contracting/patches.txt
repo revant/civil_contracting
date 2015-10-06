@@ -1,0 +1,5 @@
+execute:import unidecode # new requirement
+
+execute:frappe.delete_doc("DocType", "Material Sheet")
+execute:frappe.delete_doc("DocType", "Material Sheet Item")
+execute:frappe.delete_doc("Report", "Material Consumption Report")
