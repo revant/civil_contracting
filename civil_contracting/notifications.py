@@ -8,6 +8,12 @@ def get_notification_config():
 	return {
 		"for_doctype": {
 			"Worker Sheet": {"docstatus": 0},
-			"Material Sheet": {"docstatus": 0}
+			"Material Sheet": {"docstatus": 0},
+			"Measurement Sheet": {"docstatus": 0},
+			"Wage Slip": {"docstatus": 0},
+			"Measurement Book": {"docstatus": 0},
+			"Worker": {
+				"outstanding_wages": (">", 0.0)
+			}
 		}
 	}
