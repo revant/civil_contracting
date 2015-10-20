@@ -1,5 +1,11 @@
 // Copyright (c) 2015, Revant Nandgaonkar and contributors
 // For license information, please see license.txt
+
+cur_frm.add_fetch("worker", "employee_name", "worker_name");
+cur_frm.add_fetch("worker", "workstation", "workstation");
+cur_frm.add_fetch("worker", "outstanding_wages", "t_os_wage");
+
+
 var os_wages_account = "";
 
 frappe.ui.form.on("Wage Slip", {
