@@ -1,0 +1,411 @@
+<!-- title: Worker Sheet -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/worker_sheet"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+    <p><b>Table Name:</b> <code>tabWorker Sheet</code></p>
+
+
+Record Worker Attendance, Wage Rate and Outstanding Wage
+
+<h3>Fields</h3>
+
+<table class="table table-bordered" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr class="info">
+            <td>1</td>
+            <td ><code>sb_ws</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Worker Sheet
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>date</code></td>
+            <td >
+                Date</td>
+            <td >
+                Date
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>mode_of_payment</code></td>
+            <td >
+                Link</td>
+            <td >
+                Mode of Payment
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/accounts/mode_of_payment">Mode of Payment</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>cb_ws_details</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>project</code></td>
+            <td >
+                Link</td>
+            <td >
+                Project
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/projects/project">Project</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>6</td>
+            <td ><code>cost_center</code></td>
+            <td >
+                Read Only</td>
+            <td class="text-muted" title="Hidden">
+                Cost Center
+                
+            </td>
+            <td>
+                <pre>project.cost_center</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>working_hours</code></td>
+            <td >
+                Float</td>
+            <td >
+                Working Hours
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr class="info">
+            <td>8</td>
+            <td ><code>sb_wa</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Worker Attendance
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>9</td>
+            <td ><code>worker_attendance</code></td>
+            <td >
+                Table</td>
+            <td >
+                Worker Attendance Sheet
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/worker_sheet_attendance">Worker Sheet Attendance</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>10</td>
+            <td ><code>sb_was</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>11</td>
+            <td ><code>other_worker_expense</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Other Worker Expense
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>12</td>
+            <td ><code>outstanding_wages</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Outstanding Wages
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>13</td>
+            <td ><code>fiscal_year</code></td>
+            <td >
+                Link</td>
+            <td >
+                Fiscal Year
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/accounts/fiscal_year">Fiscal Year</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>14</td>
+            <td ><code>cb_wa</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>15</td>
+            <td ><code>daily_wages</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Daily Wages
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>16</td>
+            <td ><code>total_wages</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Total Wages
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>17</td>
+            <td ><code>company</code></td>
+            <td >
+                Link</td>
+            <td >
+                Company
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/setup/company">Company</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>18</td>
+            <td ><code>sb_other_details</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Other Details
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>19</td>
+            <td ><code>remark</code></td>
+            <td >
+                Small Text</td>
+            <td >
+                Remark
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>20</td>
+            <td ><code>amended_from</code></td>
+            <td >
+                Link</td>
+            <td >
+                Amended From
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/worker_sheet">Worker Sheet</a>
+
+
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>civil_contracting.civil_contracting.doctype.worker_sheet.worker_sheet</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>WorkerSheet</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="on_cancel" href="#on_cancel" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>on_cancel</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="on_submit" href="#on_submit" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>on_submit</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+
+    
+    
+        <h4>Linked In:</h4>
+        <ul>
+        
+            <li>
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/worker_sheet">Worker Sheet</a>
+
+</li>
+        
+        </ul>
+    
+
+
+<!-- autodoc -->
+<!-- jinja -->
+<!-- static -->

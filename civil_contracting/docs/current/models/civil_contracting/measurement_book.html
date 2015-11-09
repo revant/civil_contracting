@@ -1,0 +1,243 @@
+<!-- title: Measurement Book -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/measurement_book"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+    <p><b>Table Name:</b> <code>tabMeasurement Book</code></p>
+
+
+Compilation of list of Measurement Sheets linked with Delivery Note
+
+<h3>Fields</h3>
+
+<table class="table table-bordered" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr class="info">
+            <td>1</td>
+            <td ><code>sb_ms_detail</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Measurement Book Details
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>date</code></td>
+            <td >
+                Date</td>
+            <td >
+                Date
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>delivery_note</code></td>
+            <td >
+                Link</td>
+            <td >
+                Delivery Note
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/stock/delivery_note">Delivery Note</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>customer</code></td>
+            <td >
+                Data</td>
+            <td >
+                Customer
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>get_items</code></td>
+            <td >
+                Button</td>
+            <td >
+                Get Items
+                <p class="text-muted small">
+                    Get Measurement Sheets related to Delivery Note Selected</p>
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr class="info">
+            <td>6</td>
+            <td ><code>sb_measurement_records</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Measurement Records
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>records</code></td>
+            <td >
+                Table</td>
+            <td >
+                Records
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/measurement_book_record">Measurement Book Record</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>8</td>
+            <td ><code>amended_from</code></td>
+            <td >
+                Link</td>
+            <td >
+                Amended From
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/measurement_book">Measurement Book</a>
+
+
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>civil_contracting.civil_contracting.doctype.measurement_book.measurement_book</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>MeasurementBook</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate" href="#validate" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/civil_contracting.civil_contracting.doctype.measurement_book.measurement_book.get_measure_sheets</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="civil_contracting.civil_contracting.doctype.measurement_book.measurement_book.get_measure_sheets" href="#civil_contracting.civil_contracting.doctype.measurement_book.measurement_book.get_measure_sheets" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		civil_contracting.civil_contracting.doctype.measurement_book.measurement_book.<b>get_measure_sheets</b>
+        <i class="text-muted">(dn)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+	
+
+
+    
+    
+        <h4>Linked In:</h4>
+        <ul>
+        
+            <li>
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/measurement_book">Measurement Book</a>
+
+</li>
+        
+        </ul>
+    
+
+
+<!-- autodoc -->
+<!-- jinja -->
+<!-- static -->
