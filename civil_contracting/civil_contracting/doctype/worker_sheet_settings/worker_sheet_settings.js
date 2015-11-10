@@ -6,21 +6,21 @@
 cur_frm.set_query("wages_account", function(doc) {
 	return {
 		"filters": {
-			"group_or_ledger": "Ledger"
+			"is_group": 0
 		}
 	};
 });
 cur_frm.set_query("os_wages_account", function(doc) {
 	return {
 		"filters": {
-			"group_or_ledger": "Ledger"
+			"is_group": 0
 		}
 	};
 });
 cur_frm.set_query("other_wexp_account", function(doc) {
 	return {
 		"filters": {
-			"group_or_ledger": "Ledger"
+			"is_group": 0
 		}
 	};
 });
