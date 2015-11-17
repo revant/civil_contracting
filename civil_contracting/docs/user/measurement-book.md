@@ -23,9 +23,3 @@ Measurement Book is Set of Measurement Sheets compiled together. It can be kept 
 <!-- autodoc -->
 <!-- jinja -->
 <!-- static -->
-
-
-
-"
-"
-
