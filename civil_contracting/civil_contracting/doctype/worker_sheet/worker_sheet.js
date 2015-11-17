@@ -9,16 +9,14 @@ var working_hours = 0.0;
 frappe.ui.form.on("Worker Sheet", {
 	onload: function(frm) {
 		frappe.call({
-        	method: "frappe.client.get",
+        	method: "civil_contracting.civil_contracting.doctype.worker_sheet_settings.worker_sheet_settings.get_account",
         	args: {
-        		doctype: "Worker Sheet Settings"
+        		company: frm.doc.company
         	},
         	callback: function (data) {
-	        	wages_account = data.message.wages_account;;
-				os_wages_account = data.message.os_wages_account;
-				other_wexp_account = data.message.other_wexp_account;
-				working_hours = data.message.working_hours;
-        		frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
+        		wages_account = data.message[0].account;
+				os_wages_account = data.message[1].account;
+				other_wexp_account = data.message[2].account;
         		if(!wages_account){
 	        		msgprint (__("Set Wages account in Worker Sheet Settings"));
         		}
@@ -28,11 +26,21 @@ frappe.ui.form.on("Worker Sheet", {
         		if(!other_wexp_account){
 	        		msgprint (__("Set Other Worker Expenses account in Worker Sheet Settings"));
         		}
-        		if(!working_hours){
+        	}
+    	});
+		frappe.call({
+        	method: "frappe.client.get",
+        	args: {
+        		doctype: "Worker Sheet Settings"
+        	},
+        	callback: function (data) {
+				working_hours = data.message.working_hours;
+  				if(!working_hours){
 	        		msgprint (__("Set Working Hours in Worker Sheet Settings"));
         		}
+	   		    frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
         	}
-    	})
+    	});
 	},
 	onload_post_render: function() {
 		cur_frm.get_field("worker_attendance").grid.set_multiple_add("workstation", "rate");

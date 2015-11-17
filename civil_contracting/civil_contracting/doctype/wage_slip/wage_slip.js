@@ -11,13 +11,14 @@ var os_wages_account = "";
 frappe.ui.form.on("Wage Slip", {
 	onload: function(frm) {
 		frappe.call({
-        	method: "frappe.client.get",
+        	method: "civil_contracting.civil_contracting.doctype.worker_sheet_settings.worker_sheet_settings.get_account",
         	args: {
-        		doctype: "Worker Sheet Settings"
+        		company: frm.doc.company
         	},
         	callback: function (data) {
-				os_wages_account = data.message.os_wages_account;
-  				if(!os_wages_account){
+        		os_wages_account = data.message[1].account;
+        		msgprint(os_wages_account)
+        		if(!os_wages_account){
 	        		msgprint (__("Set Outstanding Wages account in Worker Sheet Settings"));
         		}
         	}
