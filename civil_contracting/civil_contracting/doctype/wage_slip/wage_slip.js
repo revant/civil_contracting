@@ -17,7 +17,6 @@ frappe.ui.form.on("Wage Slip", {
         	},
         	callback: function (data) {
         		os_wages_account = data.message[1].account;
-        		msgprint(os_wages_account)
         		if(!os_wages_account){
 	        		msgprint (__("Set Outstanding Wages account in Worker Sheet Settings"));
         		}
