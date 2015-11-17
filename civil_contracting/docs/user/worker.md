@@ -11,7 +11,13 @@ Worker record is a Master for Workers linked with Employee Master.
 
 <img class="screenshot" alt="Worker" src="{{ docs_base_url }}/assets/img/worker/worker-1.png">
 <ul>
- <li><strong>Field</strong>: Explanation</li>
+ <li><strong>Employee</strong>: Link to Employee if Employee Master is already created, not mandatory</li>
+ <li><strong>Project</strong>: Project on which worker is working</li>
+ <li><strong>Full Name</strong>: Full Name of Worker (type in if Employee is not Selected)</li>
+ <li><strong>Workstation</strong>: Workstation on which the worker is working e.g Mason Civil, Coolie Helper, etc</li>
+ <li><strong>Outstanding Wages</strong>: Automatically accumulated outstanding wages as per records in Worker Sheet, do not unnecessarily modify</li>
+ <li><strong>Hour Rate</strong>: Hour rate of the worker</li>
+ <li><strong>Contact No.</strong>: Contact Phone number</li>
 </ul>
 
 {next}
@@ -19,3 +25,4 @@ Worker record is a Master for Workers linked with Employee Master.
 <!-- autodoc -->
 <!-- jinja -->
 <!-- static -->
+
