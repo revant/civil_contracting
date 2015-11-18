@@ -35,48 +35,16 @@ class WorkerSheetSettings(Document):
 
 	def validate_accounts(self):
 		for entry in self.wages_account:
-			if not entry.account:
-				frappe.throw(_("Enter Account in Default Wages Account"))
-			
-			account = frappe.get_list("Account",
-				fields=["name"],
-				filters = {
-					"company": entry.company,
-					"name": entry.account
-				})
-			try:
-				account[0].name
-			except IndexError:
+			"""Error when Company of Ledger account doesn't match with Company Selected"""
+			if frappe.db.get_value("Account", entry.account, "company") != entry.company:
 				frappe.throw(_("Account does not match with Company for Default Wages Account"))
 
 		for entry in self.os_wages_account:
-			if not entry.account:
-				frappe.throw(_("Enter Account in Default Outstanding Wages Account"))
-			
-			account = frappe.get_list("Account",
-				fields=["name"],
-				filters = {
-					"company": entry.company,
-					"name": entry.account
-				})
-			try:
-				account[0].name
-			except IndexError:
+			if frappe.db.get_value("Account", entry.account, "company") != entry.company:
 				frappe.throw(_("Account does not match with Company for Default Outstanding Wages Account"))
 
 		for entry in self.other_wexp_account:
-			if not entry.account:
-				frappe.throw(_("Enter Account in Default Other Worker Expenses Account"))
-			
-			account = frappe.get_list("Account",
-				fields=["name"],
-				filters = {
-					"company": entry.company,
-					"name": entry.account
-				})
-			try:
-				account[0].name
-			except IndexError:
+			if frappe.db.get_value("Account", entry.account, "company") != entry.company:
 				frappe.throw(_("Account does not match with Company for Default Other Worker Expenses Account"))
 
 @frappe.whitelist()

@@ -13,7 +13,7 @@ long_description = """Contracting businesses bring together men and material on 
 5. HR Modules helps in Expense claim, Payroll, etc.
 6. Cost Centers and Projects help in identifying expenses and costs
 
-ERPNext manages Employee master document which requires in-depth information about individual to be maintained. Sometimes Employee master becomes to much information to be gathered when the indidual in question is only going to work for half a day.  
+ERPNext manages Employee master document which requires in-depth information about individual to be maintained. Sometimes Employee master becomes to much information to be gathered when the individual in question is only going to work for half a day.  
 
 Employee Attendance and Payroll is managed on monthly basis. Where as Workers come and go on daily basis, some remain up to the period of site allowing us to pay them later as our outstanding wages. Taking Worker attendance and making wage payment becomes a as-required affair not a monthly affair. Wages must be recorded as direct costs.  
 
