@@ -4,23 +4,22 @@ source_link = "https://github.com/revant/civil_contracting"
 docs_base_url = "https://revant.github.io/civil_contracting"
 headline = "Frappe App for use in Civil Contracting Business"
 sub_heading = "Helps manage wages, workers and measurements"
-long_description = """# Civil Contracting App  
-Frappe App for use in Civil Contracting Business  
-  
-# Install  
-  
-First install frappe-bench, erpnext and setup a site [http://frappe.io]  
-  
-```
-$ bench get-app civil_contracting https://github.com/revant/civil_contracting
-$ bench frappe --install_app civil_contracting [sitename]
-```
-  
-# Business  
-  1. Measurements: Measurements are taken by multiple parties for multiple purposes. Measurements are taken before quoting, along with bill/sales invoice, Third Party measurements, Customer Measures, before paying sub-contractor etc. Measurement Books are compiled and submitted to parties.
-  2. Workers: There are two type of construction workers, 
-    1. Daily Wage labour (called *rokda* in Hindi) they charge cash daily and 
-    2. Monthly Wage Labour (called *hajeri* in Hindi) they are paid monthly."""
+long_description = """Contracting businesses bring together men and material on site to create value. Material Entries are handled by ERPNext.  
+
+1. Purchase Receipts are made when material is purchased and Warehouse selected to store the material.
+2. Warehouse (contract sites) are Logical Warehouse created as per material stored on site.
+3. Linked Stock and Accounting entries are managed.
+4. Workstations are types of Workers, eg. Male Coolie Helper, Mason Civil, Carpenter, Plumber.
+5. HR Modules helps in Expense claim, Payroll, etc.
+6. Cost Centers and Projects help in identifying expenses and costs
+
+ERPNext manages Employee master document which requires in-depth information about individual to be maintained. Sometimes Employee master becomes to much information to be gathered when the indidual in question is only going to work for half a day.  
+
+Employee Attendance and Payroll is managed on monthly basis. Where as Workers come and go on daily basis, some remain up to the period of site allowing us to pay them later as our outstanding wages. Taking Worker attendance and making wage payment becomes a as-required affair not a monthly affair. Wages must be recorded as direct costs.  
+
+Civil Contracting manages these challenges by Creating Worker Database, Worker Attendence and Expense Tracking Document and a Document to manage Outstanding Wage payments. These documents are integrated into ERPNext accounts. On submitting these documents appropriate Journal Entries can be made from the information in the Documents. This app also adds Measurement Book and Measurement Sheets to record site measurements.
+
+"""
 
 def get_context(context):
     # optional settings
