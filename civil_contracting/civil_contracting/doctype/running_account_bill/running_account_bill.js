@@ -32,7 +32,8 @@ frappe.ui.form.on("Running Account Bill", "get_invoices", function(frm) {
 			args: {
 				"customer": frm.doc.customer,
 				"project": frm.doc.project,
-				"prev_ra_bill": frm.doc.prev_ra_bill
+				"prev_ra_bill": frm.doc.prev_ra_bill,
+				"ra_bill_no": frm.doc.ra_bill_no
 			},
 			callback: function(r, rt) {
 				if(r.message) {
@@ -43,18 +44,10 @@ frappe.ui.form.on("Running Account Bill", "get_invoices", function(frm) {
 						var c = frm.add_child("sales_invoice_list");
 						c.sales_invoice = d.name;
 						c.net_total = d.total;
-						sum_net_total += d.total; // build sum_net_total
 						c.tax = d.total_taxes_and_charges;
-						sum_tax += d.total_taxes_and_charges; // build sum_tax
 						c.grand_total = d.grand_total;
-						sum_grand_total += d.grand_total; // build sum_grand_total
-						sum_paid_amount += d.paid_amount; // build sum_paid_amount
 					});
 				}
-				frm.set_value("sum_net_total", sum_net_total);
-				frm.set_value("sum_taxes", sum_tax);
-				frm.set_value("sum_grand_total", sum_grand_total);
-				frm.set_value("payments_till_date", sum_paid_amount);
 				refresh_field("sales_invoice_list");
 				frm.layout.refresh_sections();
 			}
