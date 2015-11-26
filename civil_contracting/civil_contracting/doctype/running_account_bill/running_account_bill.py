@@ -10,24 +10,47 @@ from collections import Counter
 
 class RunningAccountBill(Document):
 
+	def on_update(self):
+		self.set_ra_bill_no()
+		self.calculate_totals()
+		
 	def validate(self):
 		self.validate_previous_ra_bill()
 		self.validate_project()
-		self.set_ra_bill_no()
 		self.validate_ra_no()
 		self.validate_prev_si()
 
+	def calculate_totals(self):
+		sum_grand_total = 0.0
+		sum_net_total = 0.0
+		sum_taxes = 0.0
+		for si in self.sales_invoice_list:
+			sum_taxes = sum_taxes + si.tax
+			sum_net_total = sum_net_total + si.net_total
+			sum_grand_total = sum_grand_total + si.grand_total
+
+		self.sum_net_total = sum_net_total
+		self.sum_grand_total = sum_grand_total
+		self.sum_taxes = sum_taxes
+
+	
 	def validate_prev_si(self):
+		"""Sales Invoices in all previous series RA Bill Do not repeat"""
+		prev_ra_bill_list = []
 		if self.prev_ra_bill:
-			for invoice in self.sales_invoice_list:
-				prev_ra_bill = frappe.get_list("Running Account Bill Invoices",
+			for r in xrange(self.ra_bill_no):
+				prev_ra_bill_list.append(frappe.db.get_value("Running Account Bill", {"ra_bill_no": r or 1, "customer":self.customer}, "name"))
+			
+			for name in prev_ra_bill_list:
+				prev_ra_bill_invoices = frappe.get_list("Running Account Bill Invoices",
 					fields=["sales_invoice"],
 					filters = {
-						"parent": self.prev_ra_bill
+						"parent": name
 					})
-				for i in xrange(len(prev_ra_bill)):
-					if invoice.sales_invoice == prev_ra_bill[i].sales_invoice:
-						frappe.throw(_("Cannot Select Sales Invoices from Previous RA Bill"))
+				for si in self.sales_invoice_list:
+					for i in prev_ra_bill_invoices:
+						if si.sales_invoice == i.sales_invoice:
+							frappe.throw(_("Cannot Select Sales Invoices from Previous RA Bill"))
 
 	def validate_ra_no(self):
 		""" Validates Same RA Bill cannot be selected as Previous RA Bill"""
@@ -88,7 +111,8 @@ class RunningAccountBill(Document):
 		return out_list
 
 @frappe.whitelist()
-def get_sales_invoices(customer, project=None, prev_ra_bill=None):
+def get_sales_invoices(customer, project=None, prev_ra_bill=None, ra_bill_no=None):
+	prev_ra_bill_list = []
 	if customer and project:
 		out = frappe.db.sql("""select name, total, total_taxes_and_charges, grand_total, paid_amount
 			from `tabSales Invoice`
@@ -102,15 +126,5 @@ def get_sales_invoices(customer, project=None, prev_ra_bill=None):
 			where customer = %(customer)s and
 			docstatus = 1 """\
 			, {"customer":frappe.db.escape(customer)}, as_dict=1)
-
-	ra = frappe.get_list("Running Account Bill Invoices",
-			fields=["sales_invoice"],
-			filters = {
-				"parent": prev_ra_bill
-			})
-	for i in xrange(len(ra)):
-		for item in out:
-			if ra[i].sales_invoice == item.name:
-				out.remove(item)
 
 	return out
