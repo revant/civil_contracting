@@ -38,7 +38,9 @@ frappe.ui.form.on("Worker Sheet", {
   				if(!working_hours){
 	        		msgprint (__("Set Working Hours in Worker Sheet Settings"));
         		}
-	   		    frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
+	   		    if (!frm.doc.working_hours) {
+	   		    	frappe.model.set_value(frm.doctype, frm.docname, "working_hours", working_hours);
+	   		    };
         	}
     	});
 	},
