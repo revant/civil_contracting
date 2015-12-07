@@ -25,14 +25,17 @@ class WageSlip(Document):
 	def on_cancel(self):
 		for payment in self.payment_allocation:
 			if payment.worker:
-				get_worker = frappe.db.sql("""select name, outstanding_wages 
+				get_worker = frappe.db.sql("""select name, outstanding_wages
 		from `tabWorker` where name = %s """, payment.worker, as_dict=1)
 				current_os_wage = get_worker[0].outstanding_wages
 				os_wages = current_os_wage + payment.t_payment
 				frappe.set_value("Worker", payment.worker, "outstanding_wages", os_wages)
 
 @frappe.whitelist()
-def get_os_wg(project):
-	return frappe.db.sql("""select name, employee_name, outstanding_wages, workstation, project 
-		from `tabWorker` where project = %s """, project, as_dict=1)
-
+def get_os_wg(supplier, project=""):
+	if supplier and project:
+		return frappe.db.sql("""select name, employee_name, outstanding_wages, workstation, project, supplier
+			from `tabWorker` where project = %(project)s or supplier = %(supplier)s""", {"project":frappe.db.escape(project),"supplier":frappe.db.escape(supplier)}, as_dict=1)
+	elif supplier:
+		return frappe.db.sql("""select name, employee_name, outstanding_wages, workstation, project, supplier
+			from `tabWorker` where supplier = %(supplier)s""", {"supplier":frappe.db.escape(supplier)}, as_dict=1)
