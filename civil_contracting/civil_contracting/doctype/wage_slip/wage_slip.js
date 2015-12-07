@@ -26,33 +26,30 @@ frappe.ui.form.on("Wage Slip", {
 });
 
 frappe.ui.form.on("Wage Slip", "get_outstanding_wages", function(frm) {
-	
-	frm.set_value("payment_allocation", []);
-	if(frm.doc.project) {
-		return  frappe.call({
-			method: 'civil_contracting.civil_contracting.doctype.wage_slip.wage_slip.get_os_wg',
-			args: {
-				"project": frm.doc.project
-			},
-			callback: function(r, rt) {
-				if(r.message) {
-					
-					frm.clear_table("payment_allocation");
 
+	frm.set_value("payment_allocation", []);
+	return frappe.call({
+		method: 'civil_contracting.civil_contracting.doctype.wage_slip.wage_slip.get_os_wg',
+		args: {
+			"supplier": frm.doc.supplier,
+			"project": frm.doc.project
+		},
+		callback: function(r, rt) {
+			if(r.message) {
+					frm.clear_table("payment_allocation");
 					$.each(r.message, function(i, d) {
-						var c = frm.add_child("payment_allocation");
-						c.worker = d.name;
-						c.worker_name = d.employee_name;
-						c.workstation = d.workstation;
-						c.t_os_wage = d.outstanding_wages;
-						//c.t_payment = 0;
-					});
-				}
-				refresh_field("payment_allocation");
-				frm.layout.refresh_sections();
+					var c = frm.add_child("payment_allocation");
+					c.worker = d.name;
+					c.worker_name = d.employee_name;
+					c.workstation = d.workstation;
+					c.t_os_wage = d.outstanding_wages;
+					//c.t_payment = 0;
+				});
 			}
-		});
-	}
+			refresh_field("payment_allocation");
+			frm.layout.refresh_sections();
+		}
+	});
 });
 
 calculate_totals = function(doc) {
