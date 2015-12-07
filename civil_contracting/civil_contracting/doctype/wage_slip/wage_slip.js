@@ -31,8 +31,8 @@ frappe.ui.form.on("Wage Slip", "get_outstanding_wages", function(frm) {
 	return frappe.call({
 		method: 'civil_contracting.civil_contracting.doctype.wage_slip.wage_slip.get_os_wg',
 		args: {
-			"supplier": frm.doc.supplier
-			//"project": frm.doc.project
+			"supplier": frm.doc.supplier,
+			"project": frm.doc.project
 		},
 		callback: function(r, rt) {
 			if(r.message) {

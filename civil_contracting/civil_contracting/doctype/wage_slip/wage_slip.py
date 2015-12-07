@@ -39,3 +39,6 @@ def get_os_wg(supplier, project=""):
 	elif supplier:
 		return frappe.db.sql("""select name, employee_name, outstanding_wages, workstation, project, supplier
 			from `tabWorker` where supplier = %(supplier)s""", {"supplier":frappe.db.escape(supplier)}, as_dict=1)
+	elif project:
+		return frappe.db.sql("""select name, employee_name, outstanding_wages, workstation, project, supplier
+			from `tabWorker` where project = %(project)s""", {"project":frappe.db.escape(project)}, as_dict=1)
