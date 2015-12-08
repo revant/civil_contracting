@@ -18,6 +18,8 @@ class WageSlip(Document):
 			if payment.worker:
 				if not payment.t_payment:
 					frappe.throw(_("Payment must be entered"))
+				elif payment.t_payment < 0:
+					frappe.throw(_("Payment cannot be negative"))
 
 				os_wages = payment.t_os_wage - payment.t_payment
 				frappe.set_value("Worker", payment.worker, "outstanding_wages", os_wages)
