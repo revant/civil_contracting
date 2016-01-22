@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Measurement Book </title>
+	<title> Running Account Bill Invoices </title>
 	<meta name="generator" content="frappe">
     <link type="text/css" rel="stylesheet" href="https://revant.github.io/civil_contracting/assets/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="https://revant.github.io/civil_contracting/assets/css/hljs.css">
@@ -26,7 +26,7 @@
 
 </style>
 </head>
-<body data-path="user/measurement-book">
+<body data-path="current/models/civil_contracting/running_account_bill_invoices">
 	<div class="offcanvas-container">
 		<div class="offcanvas">
 			<div class="offcanvas-main-section">
@@ -70,7 +70,7 @@
                         <div data-html-block="hero"></div>
                         <div class="container" data-html-block="content">
                         
-<div class="page-container" id="page-measurement-book" data-path="user/measurement-book"
+<div class="page-container" id="page-running_account_bill_invoices" data-path="current/models/civil_contracting/running_account_bill_invoices"
     data-doctype="Web Page">
 	<div class="page-content">
     	<div class="page-content-wrapper">
@@ -80,11 +80,22 @@
 	                <div class="page-breadcrumbs" data-html-block="breadcrumbs">
 	                    
     
+    
+<ul class="breadcrumb">
+	<li>
+		<span class="icon icon-angle-left"></span>
+		<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting">
+		Module civil_contracting</a>
+	</li>
+	
+</ul>
+
+    
 
 	                </div>
 					
 	        		<div class="page-header-block" data-html-block="header">
-	                    <h1>Measurement Book</h1>
+	                    <h1>Running Account Bill Invoices</h1>
 	        		</div>
                 </div>
 				
@@ -92,35 +103,141 @@
     	    <div class="page-content-block">
 <div class="webpage-content">
 	
-	<article class="web-page-content" id="measurement-book" styl
+	<article class="web-page-content" id="running_account_bill_invoices" styl
 
     e="text-align: Left">
-	<p><!-- title: Measurement Book -->
-<!-- no-breadcrumbs --></p>
+	<!-- title: Running Account Bill Invoices -->
 
-<p>Measurement Book is Set of Measurement Sheets compiled together. It can be kept for record or submitted to customer in value chain.</p>
 
-<blockquote>
-  <p>Civil Contracting &gt; Documents &gt; Measurement Book &gt; New</p>
-</blockquote>
 
-<h4>Fill in the details of Measurement Book.</h4>
 
-<p><img class="screenshot" alt="Measurement Book" src="https://revant.github.io/civil_contracting/assets/img/measurement-book/measurement-book-1.png"></p>
 
-<ul>
- <li><strong>Date</strong>: Enter Date on which Book is Submitted</li>
- <li><strong>Delivery Note</strong>: Submitted Delivery Note for which Measurement Sheets are collected, see <a href="https://revant.github.io/civil_contracting/user/measurement-sheet.html"> Measurement Sheet</a> to learn how Delivery Note links to Measurement Sheet</li>
- <li><strong>Customer</strong>: Customer for which Book is made (internal / external)</li>
- <li><strong>Get Items</strong>: Click the button to get Measurement Sheets related to Delivery Note Selected</li>
- <li><strong>Measurement Book Records</strong>: This table accumulates the Measurement Sheets for the Book, verify and submit.</li>
-</ul>
+<div class="dev-header">
 
-<p><p class="btn-next-wrapper">Next: <a class="btn-next" href="measurement-sheet.html">Measurement Sheet</a></p></p>
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
 
-<p><!-- autodoc -->
+
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/running_account_bill_invoices"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+<span class="label label-info">Child Table</span>
+
+
+    <p><b>Table Name:</b> <code>tabRunning Account Bill Invoices</code></p>
+
+
+
+
+<h3>Fields</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr >
+            <td>1</td>
+            <td ><code>sales_invoice</code></td>
+            <td >
+                Link</td>
+            <td >
+                Sales Invoice
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/accounts/sales_invoice">Sales Invoice</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>tax</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Tax
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>cb_1</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>net_total</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Net Total
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>grand_total</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Grand Total
+                
+            </td>
+            <td></td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    
+    
+    <h4>Child Table Of</h4>
+    <ul>
+    
+        <li>
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
+
+</li>
+    
+    </ul>
+    
+
+
+<!-- autodoc -->
 <!-- jinja -->
-<!-- static --></p>
+<!-- static -->
 	</article>
 	
 </div>
