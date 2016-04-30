@@ -1,3 +1,3 @@
 civil_contracting.config.desktop
-civil_contracting.config.docs
 civil_contracting.config
+civil_contracting.config.docs

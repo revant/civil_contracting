@@ -1,4 +1,4 @@
-<!-- title: Wage Slip Allocation -->
+<!-- title: Running Account Bill Items -->
 
 
 
@@ -10,7 +10,7 @@
 	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
 
 
-	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/wage_slip_allocation"
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/running_account_bill_items"
 		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
 
 </div>
@@ -19,7 +19,7 @@
 <span class="label label-info">Child Table</span>
 
 
-    <p><b>Table Name:</b> <code>tabWage Slip Allocation</code></p>
+    <p><b>Table Name:</b> <code>tabRunning Account Bill Items</code></p>
 
 
 
@@ -40,11 +40,11 @@
         
         <tr >
             <td>1</td>
-            <td ><code>worker</code></td>
+            <td ><code>item</code></td>
             <td >
                 Link</td>
             <td >
-                Worker
+                Item
                 
             </td>
             <td>
@@ -52,7 +52,7 @@
                 
 
 
-<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/worker">Worker</a>
+<a href="https://revant.github.io/civil_contracting/current/models/stock/item">Item</a>
 
 
                 
@@ -61,11 +61,11 @@
         
         <tr >
             <td>2</td>
-            <td ><code>worker_name</code></td>
+            <td ><code>previous_qty</code></td>
             <td >
                 Read Only</td>
             <td >
-                Worker Name
+                Previous
                 
             </td>
             <td></td>
@@ -73,32 +73,23 @@
         
         <tr >
             <td>3</td>
-            <td ><code>workstation</code></td>
+            <td ><code>current_qty</code></td>
             <td >
-                Link</td>
+                Read Only</td>
             <td >
-                Workstation
+                Current
                 
             </td>
-            <td>
-                
-                
-
-
-<a href="https://revant.github.io/civil_contracting/current/models/manufacturing/workstation">Workstation</a>
-
-
-                
-            </td>
+            <td></td>
         </tr>
         
         <tr >
             <td>4</td>
-            <td ><code>t_os_wage</code></td>
+            <td ><code>total_qty</code></td>
             <td >
-                Currency</td>
+                Read Only</td>
             <td >
-                Outstanding Wages
+                Total
                 
             </td>
             <td></td>
@@ -106,11 +97,47 @@
         
         <tr >
             <td>5</td>
-            <td ><code>t_payment</code></td>
+            <td ><code>cb_1</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>6</td>
+            <td ><code>uom</code></td>
+            <td >
+                Read Only</td>
+            <td >
+                UOM
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>rate</code></td>
             <td >
                 Currency</td>
             <td >
-                Payment
+                Rate
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>8</td>
+            <td ><code>amount</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Amount
                 
             </td>
             <td></td>
@@ -128,7 +155,7 @@
         <li>
 
 
-<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/wage_slip">Wage Slip</a>
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
 
 </li>
     

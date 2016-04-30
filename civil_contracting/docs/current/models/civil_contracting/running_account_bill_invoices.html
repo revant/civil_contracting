@@ -1,4 +1,4 @@
-<!-- title: Wage Slip Allocation -->
+<!-- title: Running Account Bill Invoices -->
 
 
 
@@ -10,7 +10,7 @@
 	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
 
 
-	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/wage_slip_allocation"
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/running_account_bill_invoices"
 		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
 
 </div>
@@ -19,7 +19,7 @@
 <span class="label label-info">Child Table</span>
 
 
-    <p><b>Table Name:</b> <code>tabWage Slip Allocation</code></p>
+    <p><b>Table Name:</b> <code>tabRunning Account Bill Invoices</code></p>
 
 
 
@@ -40,11 +40,11 @@
         
         <tr >
             <td>1</td>
-            <td ><code>worker</code></td>
+            <td ><code>sales_invoice</code></td>
             <td >
                 Link</td>
             <td >
-                Worker
+                Sales Invoice
                 
             </td>
             <td>
@@ -52,7 +52,7 @@
                 
 
 
-<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/worker">Worker</a>
+<a href="https://revant.github.io/civil_contracting/current/models/accounts/sales_invoice">Sales Invoice</a>
 
 
                 
@@ -61,11 +61,11 @@
         
         <tr >
             <td>2</td>
-            <td ><code>worker_name</code></td>
+            <td ><code>tax</code></td>
             <td >
-                Read Only</td>
+                Currency</td>
             <td >
-                Worker Name
+                Tax
                 
             </td>
             <td></td>
@@ -73,32 +73,23 @@
         
         <tr >
             <td>3</td>
-            <td ><code>workstation</code></td>
+            <td ><code>cb_1</code></td>
+            <td class="info">
+                Column Break</td>
             <td >
-                Link</td>
-            <td >
-                Workstation
+                
                 
             </td>
-            <td>
-                
-                
-
-
-<a href="https://revant.github.io/civil_contracting/current/models/manufacturing/workstation">Workstation</a>
-
-
-                
-            </td>
+            <td></td>
         </tr>
         
         <tr >
             <td>4</td>
-            <td ><code>t_os_wage</code></td>
+            <td ><code>net_total</code></td>
             <td >
                 Currency</td>
             <td >
-                Outstanding Wages
+                Net Total
                 
             </td>
             <td></td>
@@ -106,11 +97,11 @@
         
         <tr >
             <td>5</td>
-            <td ><code>t_payment</code></td>
+            <td ><code>grand_total</code></td>
             <td >
                 Currency</td>
             <td >
-                Payment
+                Grand Total
                 
             </td>
             <td></td>
@@ -128,7 +119,7 @@
         <li>
 
 
-<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/wage_slip">Wage Slip</a>
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
 
 </li>
     

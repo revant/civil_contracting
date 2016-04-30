@@ -1,0 +1,515 @@
+<!-- title: Running Account Bill -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version <module 'civil_contracting.__version__' from '/home/revant/frappe-bench/apps/civil_contracting/civil_contracting/__version__.pyc'></a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/revant/civil_contracting/tree/develop/civil_contracting/civil_contracting/doctype/running_account_bill"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+    <p><b>Table Name:</b> <code>tabRunning Account Bill</code></p>
+
+
+Running Account Bill is comprehensive bill for the Customer account on a Project
+
+<h3>Fields</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr >
+            <td>1</td>
+            <td class="danger" title="Mandatory"><code>customer</code></td>
+            <td >
+                Link</td>
+            <td >
+                Customer
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/selling/customer">Customer</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>ra_bill_no</code></td>
+            <td >
+                Read Only</td>
+            <td >
+                RA Bill No.
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>get_invoices</code></td>
+            <td >
+                Button</td>
+            <td >
+                Get Invoices
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>cb_1</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>ra_bill_date</code></td>
+            <td >
+                Data</td>
+            <td >
+                Date
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>6</td>
+            <td ><code>project</code></td>
+            <td >
+                Link</td>
+            <td >
+                Project
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/projects/project">Project</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>prev_ra_bill</code></td>
+            <td >
+                Link</td>
+            <td >
+                Previous RA Bill
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>8</td>
+            <td ><code>sb_si_1</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Sales Invoices
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>9</td>
+            <td ><code>sales_invoice_list</code></td>
+            <td >
+                Table</td>
+            <td >
+                Sales Invoices
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill_invoices">Running Account Bill Invoices</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>10</td>
+            <td ><code>sb_si_2</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>11</td>
+            <td ><code>sum_net_total</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Sum of Net Total
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>12</td>
+            <td ><code>sum_grand_total</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Sum of Grand Total
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>13</td>
+            <td ><code>get_items</code></td>
+            <td >
+                Button</td>
+            <td >
+                Get Items
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>14</td>
+            <td ><code>cb_2</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>15</td>
+            <td ><code>sum_taxes</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Sum of Taxes
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>16</td>
+            <td ><code>payments_till_date</code></td>
+            <td >
+                Currency</td>
+            <td >
+                Payments Till Date
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr class="info">
+            <td>17</td>
+            <td ><code>sb_abstract</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Abstract
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>18</td>
+            <td ><code>items_list</code></td>
+            <td >
+                Table</td>
+            <td >
+                List of Items
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill_items">Running Account Bill Items</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>19</td>
+            <td ><code>amended_from</code></td>
+            <td >
+                Link</td>
+            <td >
+                Amended From
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
+
+
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>civil_contracting.civil_contracting.doctype.running_account_bill.running_account_bill</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>RunningAccountBill</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="calculate_totals" href="#calculate_totals" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>calculate_totals</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="get_ra_items" href="#get_ra_items" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>get_ra_items</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>get<em>ra</em>items</p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="on_update" href="#on_update" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>on_update</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="set_ra_bill_no" href="#set_ra_bill_no" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>set_ra_bill_no</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Set RA Bill No depending on Selected Previous RA Bill or set it to 1</p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate" href="#validate" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_prev_si" href="#validate_prev_si" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_prev_si</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Sales Invoices in all previous series RA Bill Do not repeat</p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_previous_ra_bill" href="#validate_previous_ra_bill" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_previous_ra_bill</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Validate customer of current RA Bill and Previous RA Bill to be equal</p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_project" href="#validate_project" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_project</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Validate Project's Customer and RA Bill's Customer to be same</p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_ra_no" href="#validate_ra_no" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_ra_no</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Validates Same RA Bill cannot be selected as Previous RA Bill</p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/civil_contracting.civil_contracting.doctype.running_account_bill.running_account_bill.get_sales_invoices</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="civil_contracting.civil_contracting.doctype.running_account_bill.running_account_bill.get_sales_invoices" href="#civil_contracting.civil_contracting.doctype.running_account_bill.running_account_bill.get_sales_invoices" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		civil_contracting.civil_contracting.doctype.running_account_bill.running_account_bill.<b>get_sales_invoices</b>
+        <i class="text-muted">(customer, project=None, prev_ra_bill=None, ra_bill_no=None)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+	
+
+
+    
+    
+        <h4>Linked In:</h4>
+        <ul>
+        
+			
+            <li>
+
+
+<a href="https://revant.github.io/civil_contracting/current/models/civil_contracting/running_account_bill">Running Account Bill</a>
+
+</li>
+			
+        
+        </ul>
+    
+
+
+<!-- autodoc -->
+<!-- jinja -->
+<!-- static -->
