@@ -5,7 +5,7 @@ app_description = "App for Civil Contracting Enterprises"
 app_icon = "octicon octicon-zap"
 app_color = "grey"
 app_email = "revant.one@gmail.com"
-app_version = "1.2.0"
+app_version = "1.3.0"
 app_license = "GPL v2"
 
 # Includes in <head>
