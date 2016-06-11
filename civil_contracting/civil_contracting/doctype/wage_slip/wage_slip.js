@@ -67,7 +67,7 @@ calculate_totals = function(doc) {
 cur_frm.cscript.refresh = function(doc, dt, dn) {
 	if(!doc.__islocal) {
 		if(doc.docstatus==1 && frappe.model.can_create("Journal Entry")){
-    		cur_frm.add_custom_button(__("Make Journal Entry"), make_journal_entry, frappe.boot.doctype_icons["Journal Entry"]);
+    		cur_frm.add_custom_button(__("Make Journal Entry"), make_journal_entry);
     	}
     }
     calculate_totals(doc);
