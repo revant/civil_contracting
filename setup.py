@@ -3,7 +3,7 @@ import os
 
 import re, ast
 
-# get version from __version__ variable in erpnext/__init__.py
+# get version from __version__ variable in app's/__init__.py
 _version_re = re.compile(r'__version__\s+=\s+(.*)')
 with open('erpnext/__init__.py', 'rb') as f:
 	version = str(ast.literal_eval(_version_re.search(
