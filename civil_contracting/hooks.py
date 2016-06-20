@@ -1,3 +1,5 @@
+from . import __version__ as app_version
+
 app_name = "civil_contracting"
 app_title = "Civil Contracting"
 app_publisher = "Revant Nandgaonkar"
@@ -5,7 +7,6 @@ app_description = "App for Civil Contracting Enterprises"
 app_icon = "octicon octicon-zap"
 app_color = "grey"
 app_email = "revant.one@gmail.com"
-app_version = "1.4.0"
 app_license = "GPL v2"
 
 # Includes in <head>
