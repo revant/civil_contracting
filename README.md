@@ -2,7 +2,7 @@
 
 Civil Contracting app for Frappe / ERPNext.  
 
-Contracting businesses bring together men and material on site to create value. Material Entries are handled by ERPNext.  
+Contracting businesses bring together people and material on site to create value. Material Entries are handled by ERPNext.  
 
 1. Purchase Receipts are made when material is purchased and Warehouse selected to store the material.
 2. Warehouse (contract sites) are Logical Warehouse created as per material stored on site.
