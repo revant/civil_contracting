@@ -43,7 +43,7 @@ frappe.ui.form.on("Wage Slip", "get_outstanding_wages", function(frm) {
 					c.worker_name = d.employee_name;
 					c.workstation = d.workstation;
 					c.t_os_wage = d.outstanding_wages;
-					//c.t_payment = 0;
+					c.t_payment = d.outstanding_wages;
 				});
 			}
 			refresh_field("payment_allocation");
