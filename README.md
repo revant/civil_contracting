@@ -18,3 +18,5 @@ Employee Attendance and Payroll is managed on monthly basis. Where as Workers co
 Civil Contracting manages these challenges by Creating Worker Database, Worker Attendence and Expense Tracking Document and a Document to manage Outstanding Wage payments. These documents are integrated into ERPNext accounts. On submitting these documents appropriate Journal Entries can be made from the information in the Documents. This app also adds Measurement Book and Measurement Sheets to record site measurements.
 
 For more information : https://revant.github.io/civil_contracting
+
+THIS APP IS NOT MAINTAINED
